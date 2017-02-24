@@ -1,0 +1,30 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"></script>
+<link rel="import" href="bower_components/voice-elements/dist/voice-player.html">
+<link rel="import" href="bower_components/voice-elements/dist/voice-recognition.html">
+<!--
+`polybeer-voice-recognition`
+
+
+@demo demo/index.html 
+-->
+
+<dom-module id="polybeer-voice-recognition">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+      <voice-recognition continuous="true"></voice-recognition>
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'polybeer-voice-recognition'
+
+    });
+  </script>
+</dom-module>

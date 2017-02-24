@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>polybeer-voice-recognition</title>
+
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+      <script src="record.js"></script>
+
+    <link rel="import" href="../iron-component-page/iron-component-page.html">
+  </head>
+  <body>
+    <iron-component-page src="polybeer-voice-recognition.html"></iron-component-page>
+    <polybeer-voice-recognition id="recognition-element"></polybeer-voice-recognition>
+    <form id="recognition-form" class="pure-form">
+        <fieldset>
+            <textarea id="recognition-input" readonly></textarea>
+        </fieldset>
+        <fieldset>
+            <button id="recognition-submit" class="pure-button pure-button-primary">Start</button>
+        </fieldset>
+    </form>
+  </body>
+</html>
