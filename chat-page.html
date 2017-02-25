@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- <title>Polybeer App</title>
+  <meta name="description" content="My App description"> -->
+  <script src="../bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+
+  <link rel="import" href="../bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="../bower_components/neon-animation/neon-animated-pages.html">
+  <link rel="import" href="../bower_components/neon-animation/neon-animations.html">
+  <link rel="import" href="../bower_components/paper-styles/color.html">
+
+  <link rel="import" href="../bower_components/paper-styles/typography.html">
+
+  <link rel="import" href="../chat-elements/chat-app.html">
+
+  <style is="custom-style">
+  body {
+    overflow: hidden;
+    padding: 15px;
+    @apply(--layout-fullbleed);
+    @apply(--paper-font-common-base);
+  }
+  neon-animated-pages {
+    height: 100%;
+  }
+  .large {
+    width: 100%
+  }
+  .button {
+    text-align: center;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 2px;
+    font-size: 0.9em;
+    background-color: #fff;
+    color: #646464;
+  }
+  .button.blue {
+    background-color: #4285f4;
+    color: #fff;
+  }
+  .button.raised {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  }
+  .button.back {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+  }
+  .card-contents {
+    @apply(--layout-vertical);
+    @apply(--layout-center-center);
+    @apply(--layout-fit);
+  }
+  .button-container {
+    @apply(--layout-flex);
+    @apply(--layout-horizontal);
+    @apply(--layout-around-justified);
+  }
+  :root {
+    --color-one: var(--paper-cyan-300);
+    --color-two: var(--paper-orange-500);
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <chat-view></chat-view>
+
+</body>
+</html>
