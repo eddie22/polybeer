@@ -1,8 +1,31 @@
 {
-  "version": "0.0.1",
-  "name": "polybeer-app",
-  "private": true,
-  "devDependencies": {},
-  "dependencies": {
-  }
+  "name": "polybeer",
+  "version": "1.0.0",
+  "description": "Go Polybeer!",
+  "main": "Gruntfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-gh-pages": "^2.0.0",
+    "grunt-text-replace": "^0.4.0",
+    "web-components": "^2.1.0",
+    "webcomponents": "^0.1.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddie22/polybeer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eddie22/polybeer/issues"
+  },
+  "homepage": "https://github.com/eddie22/polybeer#readme"
 }
