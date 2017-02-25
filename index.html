@@ -6,21 +6,22 @@
 
     <title>polybeer-voice-recognition</title>
 
-    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
       <script src="record.js"></script>
-
-    <link rel="import" href="../iron-component-page/iron-component-page.html">
+      <script src="support.js"></script>
+      <link rel="import" href="polybeer-voice-recognition.html">
+    <!--<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">-->
   </head>
   <body>
-    <iron-component-page src="polybeer-voice-recognition.html"></iron-component-page>
-    <polybeer-voice-recognition id="recognition-element"></polybeer-voice-recognition>
-    <form id="recognition-form" class="pure-form">
-        <fieldset>
-            <textarea id="recognition-input" readonly></textarea>
-        </fieldset>
-        <fieldset>
-            <button id="recognition-submit" class="pure-button pure-button-primary">Start</button>
-        </fieldset>
-    </form>
-  </body>
+  <!--<iron-component-page src="polybeer-voice-recognition.html"></iron-component-page>-->
+  <polybeer-voice-recognition id="recognition-element"></polybeer-voice-recognition>
+  <form id="recognition-form" class="pure-form">
+      <fieldset>
+          <textarea id="recognition-input" readonly></textarea>
+      </fieldset>
+      <fieldset>
+          <button id="recognition-submit" class="pure-button pure-button-primary">Start</button>
+      </fieldset>
+  </form>
+</body>
 </html>
