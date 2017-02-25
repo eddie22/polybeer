@@ -13,6 +13,10 @@ window.addEventListener('WebComponentsReady', function(e) {
 
     element.addEventListener('result', function(e) {
         input.textContent = e.detail.result;
+        if(input.textContent.includes("next")) {
+            element.stop();
+            window.open("next-page.html",'_blank'); //just to test if yelling 'Next' to your laptop will open a new tab
+        }
     });
 });
 

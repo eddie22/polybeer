@@ -8,12 +8,12 @@
 
     <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
       <script src="record.js"></script>
+      <script src="player.js"></script>
       <script src="support.js"></script>
       <link rel="import" href="polybeer-voice-recognition.html">
-    <!--<link rel="import" href="bower_components/iron-component-page/iron-component-page.html">-->
+      <link rel="import" href="polybeer-player.html">
   </head>
   <body>
-  <!--<iron-component-page src="polybeer-voice-recognition.html"></iron-component-page>-->
   <polybeer-voice-recognition id="recognition-element"></polybeer-voice-recognition>
   <form id="recognition-form" class="pure-form">
       <fieldset>
@@ -21,6 +21,14 @@
       </fieldset>
       <fieldset>
           <button id="recognition-submit" class="pure-button pure-button-primary">Start</button>
+      </fieldset>
+  </form>
+  <br>
+  <polybeer-player id="player-element"></polybeer-player>
+  <form id="player-form" class="pure-form">
+      <fieldset>
+          <textarea id="player-input">In this tutorial, you’ll learn how to build elements using Polymer 1.0. You'll create a simple Polymer element, a toggle button.This project introduces you to most of the key concepts in working with Polymer.Don't worry if you don't understand everything. Each of the concepts presented here is described in detail in the Polymer documentation.</textarea>
+          <button id="player-submit" class="pure-button pure-button-primary">Speak</button>
       </fieldset>
   </form>
 </body>
