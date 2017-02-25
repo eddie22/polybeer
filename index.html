@@ -1,95 +1,206 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="generator" content="Polymer Starter Kit">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+<head>
+  <meta charset="utf-8">
+  <title>Polybeer App</title>
+  <meta name="description" content="My App description">
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
-    <title>Polybeer App</title>
-    <meta name="description" content="My App description">
+  <link rel="import" href="bower_components/iron-flex-layout/iron-flex-layout.html">
+  <link rel="import" href="bower_components/neon-animation/neon-animated-pages.html">
+  <link rel="import" href="bower_components/neon-animation/neon-animations.html">
+  <link rel="import" href="bower_components/paper-styles/color.html">
+  <link rel="import" href="circles-page.html">
+  <link rel="import" href="squares-page.html">
 
-    <!-- See https://goo.gl/qRE0vM -->
-    <meta name="theme-color" content="#3f51b5">
+  <link rel="import" href="bower_components/paper-styles/typography.html">
+  <link rel="import" href="x-card.html">
+  <link rel="import" href="x-cards-list.html">
 
-    <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="My App">
+  <link rel="import" href="chat-elements/chat-app.html">
 
-    <!-- Add to homescreen for Safari on iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="My App">
 
-    <!-- Homescreen icons -->
-    <link rel="apple-touch-icon" href="/images/manifest/icon-48x48.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/manifest/icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="96x96" href="/images/manifest/icon-96x96.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/images/manifest/icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="192x192" href="/images/manifest/icon-192x192.png">
+  <style is="custom-style">
+  body {
+    overflow: hidden;
+    padding: 15px;
+    @apply(--layout-fullbleed);
+    @apply(--paper-font-common-base);
+  }
+  neon-animated-pages {
+    height: 100%;
+  }
 
-    <!-- Tile icon for Windows 8 (144x144 + tile color) -->
-    <meta name="msapplication-TileImage" content="/images/manifest/icon-144x144.png">
-    <meta name="msapplication-TileColor" content="#3f51b5">
-    <meta name="msapplication-tap-highlight" content="no">
+  .large {
+    width: 100%
+  }
 
-    <script>
-      // Setup Polymer options
-      window.Polymer = {
-        dom: 'shadow',
-        lazyRegister: true,
-      };
+  .button {
+    text-align: center;
+    width: 120px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: 2px;
+    font-size: 0.9em;
+    background-color: #fff;
+    color: #646464;
+  }
 
-      // Load webcomponentsjs polyfill if browser does not support native
-      // Web Components
-      (function() {
-        'use strict';
+  .button.blue {
+    background-color: #4285f4;
+    color: #fff;
+  }
 
-        var onload = function() {
-          // For native Imports, manually fire WebComponentsReady so user code
-          // can use the same code path for native and polyfill'd imports.
-          if (!window.HTMLImports) {
-            document.dispatchEvent(
-              new CustomEvent('WebComponentsReady', {bubbles: true})
-            );
-          }
-        };
+  .button.raised {
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  }
 
-        var webComponentsSupported = (
-          'registerElement' in document
-          && 'import' in document.createElement('link')
-          && 'content' in document.createElement('template')
-        );
+  .button.back {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+  }
 
-        if (!webComponentsSupported) {
-          var script = document.createElement('script');
-          script.async = true;
-          script.src = '/bower_components/webcomponentsjs/webcomponents-lite.min.js';
-          script.onload = onload;
-          document.head.appendChild(script);
-        } else {
-          onload();
-        }
-      })();
+  .card-contents {
+    @apply(--layout-vertical);
+    @apply(--layout-center-center);
+    @apply(--layout-fit);
+  }
 
-      // Load pre-caching Service Worker
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/service-worker.js');
-        });
-      }
-    </script>
+  .button-container {
+    @apply(--layout-flex);
+    @apply(--layout-horizontal);
+    @apply(--layout-around-justified);
+  }
 
-    <style>
-      body {
-        margin: 0;
-        font-family: 'Roboto', 'Noto', sans-serif;
-        line-height: 1.5;
-        min-height: 100vh;
-        background-color: #eeeeee;
-      }
-    </style>
-  </head>
-  <body>
-    alive and kicking
-  </body>
+  :root {
+    --color-one: var(--paper-cyan-300);
+    --color-two: var(--paper-orange-500);
+  }
+  </style>
+
+</head>
+
+
+<!-- <body>
+<template is="dom-bind">
+
+<neon-animated-pages id="pages" selected="0">
+<circles-page on-circle-click="_onCircleClick"></circles-page>
+<squares-page on-click="_onSquaresClick"></squares-page>
+</neon-animated-pages>
+
+</template>
+
+<script>
+
+var scope = document.querySelector('template[is="dom-bind"]');
+
+scope._onCircleClick = function(event) {
+this.$.pages.selected = 1;
+};
+
+scope._onSquaresClick = function(event) {
+this.$.pages.selected = 0;
+};
+
+</script>
+</body> -->
+
+
+
+
+<!-- <body>
+
+  <template is="dom-bind">
+    <neon-animated-pages id="pages" selected="0">
+      <x-cards-list id="list">
+        <div class="card-contents">
+          <h2>Choose a subject</h2>
+          <div class="button-container large">
+            <div class="blue raised button" on-click="_onPolymerClick">
+              POLYMER
+            </div>
+            <div class="blue raised button" on-click="_onAngularClick">
+              ANGULAR
+            </div>
+          </div>
+        </div>
+      </x-cards-list>
+
+      <x-card>
+        <div class="card-contents">
+          <div class="raised back button" on-click="_onBackClick">
+            BACK
+          </div>
+          <h2>Polymer</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </x-card>
+
+      <x-card>
+        <div class="card-contents">
+          <div class="raised back button" on-click="_onBackClick">
+            BACK
+          </div>
+          <h2>Angular</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+      </x-card>
+
+    </neon-animated-pages>
+  </template>
+
+  <script>
+
+  var scope = document.querySelector('template[is="dom-bind"]');
+
+  scope._onPolymerClick = function(event) {
+    this.$.list.sharedElements = {
+      'ripple': event.target,
+      'reverse-ripple': event.target
+    };
+    this.$.pages.selected = 1;
+  };
+
+  scope._onAngularClick = function(event) {
+    this.$.list.sharedElements = {
+      'ripple': event.target,
+      'reverse-ripple': event.target
+    };
+    this.$.pages.selected = 2;
+  };
+
+  scope._onBackClick = function(event) {
+    this.$.pages.selected = 0;
+  };
+
+  </script>
+
+</body> -->
+
+
+<body>
+
+  <chat-view></chat-view>
+
+</body>
+
+
+
+
 </html>

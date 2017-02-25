@@ -1,0 +1,8 @@
+{
+  "version": "0.0.1",
+  "name": "polybeer-app",
+  "private": true,
+  "devDependencies": {},
+  "dependencies": {
+  }
+}
